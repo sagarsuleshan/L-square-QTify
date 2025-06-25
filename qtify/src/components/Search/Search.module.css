@@ -1,0 +1,97 @@
+/* .search {
+  padding: 14px 20px;
+  height: 100%;
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border: 1px solid var(--color-black);
+  width: 502px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  height: 48px;
+}
+
+.searchButton {
+  border-radius: 0px 8px 8px 0px;
+  padding: 14px 20px;
+  height: 100%;
+  border: 1px solid var(--color-black);
+  border-left: none;
+  cursor: pointer;
+  height: 100%;
+}
+
+.listElement {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.albumTitle {
+  font-size: 16px;
+}
+
+.albumArtists {
+  font-size: 12px;
+} */
+
+/* qtify/src/components/Search/Search.module.css */
+
+.search {
+  padding: 14px 20px;
+  height: 100%;
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border: 1px solid var(--color-black);
+  /* Remove fixed width and let it grow within the flex container */
+  /* width: 502px; */ /* REMOVE OR COMMENT OUT THIS LINE */
+  flex-grow: 1; /* Allow the input to take up available space */
+  min-width: 150px; /* Optional: ensure a minimum width on very small screens */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  height: 48px;
+  /* Add flex-grow to the wrapper itself so it takes available space in the Navbar */
+  flex-grow: 1;
+  max-width: 600px; /* Optional: limit the maximum width of the search bar container */
+  margin: 0 20px; /* Add horizontal margin to space it from logo/button */
+}
+
+.searchButton {
+  border-radius: 0px 8px 8px 0px;
+  padding: 14px 20px;
+  height: 100%;
+  border: 1px solid var(--color-black);
+  border-left: none;
+  cursor: pointer;
+  height: 100%;
+  /* Optional: Ensure button doesn't shrink too much */
+  flex-shrink: 0;
+  background-color: white; /* Assuming search icon background is white from Figma */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Add border around the button for consistency */
+  border: 1px solid var(--color-black);
+}
+
+.listElement {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.albumTitle {
+  font-size: 16px;
+}
+
+.albumArtists {
+  font-size: 12px;
+}

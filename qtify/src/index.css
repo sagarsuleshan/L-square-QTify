@@ -1,10 +1,37 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+/* qtify/src/index.css */
+
+/* 1. Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* 2. Define global CSS Variables using the EXACT hex codes from Figma */
+:root {
+  --color-primary: #34C94B; /* This is the green color */
+  --color-black: #121212;   /* This is the black color */
+  --color-white: #FFFFFF;   /* This is the white color (good to have for other text) */
+}
+
+/* 3. Apply Poppins as the primary font and set global background/text colors */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins globally to the body */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-black); /* Set app's main background to black */
+  color: var(--color-white); /* Set default text color to white for better contrast on black background */
 }
 
 code {
