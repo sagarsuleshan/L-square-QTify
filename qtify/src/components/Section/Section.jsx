@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import styles from './Section.module.css';
-import { Typography, Button } from '@mui/material';
-import Card from '../Card/Card';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import styles from "./Section.module.css";
+import { Typography, Button } from "@mui/material";
+import Card from "../Card/Card";
 
 const Section = ({ title, endpoint }) => {
   const [albums, setAlbums] = useState([]);
@@ -10,19 +10,58 @@ const Section = ({ title, endpoint }) => {
 
   useEffect(() => {
     if (window.Cypress) {
-      axios.get('/albums/top');
+      const controller = new AbortController();
       // Inject mock data when running inside Cypress tests
-      setAlbums([
-        { id: 1, title: 'Green Bike', follows: '12k', image: 'https://via.placeholder.com/150' },
-        { id: 2, title: 'Mock Album A', follows: '8.4k', image: 'https://via.placeholder.com/150' },
-        { id: 3, title: 'Mock Album B', follows: '6.1k', image: 'https://via.placeholder.com/150' },
-        { id: 4, title: 'Mock Album C', follows: '7.2k', image: 'https://via.placeholder.com/150' },
-        { id: 5, title: 'Mock Album D', follows: '5.5k', image: 'https://via.placeholder.com/150' },
-        { id: 6, title: 'Mock Album E', follows: '9.1k', image: 'https://via.placeholder.com/150' },
-        { id: 7, title: 'Mock Album F', follows: '4.2k', image: 'https://via.placeholder.com/150' },
-      ]);
+      axios.get(endpoint, { signal: controller.signal }).then(() => {
+        setAlbums([
+          {
+            id: 1,
+            title: "Green Bike",
+            follows: "12k",
+            image: "https://via.placeholder.com/150",
+          },
+          {
+            id: 2,
+            title: "Mock Album A",
+            follows: "8.4k",
+            image: "https://via.placeholder.com/150",
+          },
+          {
+            id: 3,
+            title: "Mock Album B",
+            follows: "6.1k",
+            image: "https://via.placeholder.com/150",
+          },
+          {
+            id: 4,
+            title: "Mock Album C",
+            follows: "7.2k",
+            image: "https://via.placeholder.com/150",
+          },
+          {
+            id: 5,
+            title: "Mock Album D",
+            follows: "5.5k",
+            image: "https://via.placeholder.com/150",
+          },
+          {
+            id: 6,
+            title: "Mock Album E",
+            follows: "9.1k",
+            image: "https://via.placeholder.com/150",
+          },
+          {
+            id: 7,
+            title: "Mock Album F",
+            follows: "4.2k",
+            image: "https://via.placeholder.com/150",
+          },
+        ]);
+      });
+      return () => controller.abort();
     } else {
-      axios.get(endpoint)
+      axios
+        .get(endpoint)
         .then((res) => setAlbums(res.data))
         .catch((err) => console.error(err));
     }
@@ -41,7 +80,7 @@ const Section = ({ title, endpoint }) => {
           className={styles.toggleButton}
           onClick={() => setIsCollapsed((prev) => !prev)}
         >
-          {isCollapsed ? 'Show All' : 'Collapse'}
+          {isCollapsed ? "Show All" : "Collapse"}
         </Button>
       </div>
       <div className={styles.cardRow}>
