@@ -1,47 +1,49 @@
 .sectionContainer {
-  margin-top: 40px;
-  padding: 0 32px;
-  width: 100%;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 32px;
+  gap: 32px;
+  width: auto;
+  height: auto;
+  color: #ffffff;
+  margin-bottom: 48px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  width: 100%;
 }
 
 .title {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
   font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
   color: #ffffff;
-  margin: 0;
 }
 
-.collapseButton {
+.showAllBtn {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
   font-size: 20px;
-  background: none;
-  border: none;
+  font-weight: 600;
+  text-transform: none;
   color: #34C94B;
-  cursor: pointer;
+  background: transparent;
+  box-shadow: none;
 }
 
-
-.collapseButton:hover {
-  background-color: var(--color-primary);
-  color: var(--color-black);
-}
-
-.grid {
+.cardRow {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap; /* Prevents wrapping if you want scroll */
   gap: 40px;
-  overflow-x: auto; /* Optional for scrollable section */
-  width: 100%;
-  padding-bottom: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.cardRow::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
