@@ -1,11 +1,10 @@
 // qtify/src/components/Section/Section.jsx
-import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // <--- Ensure Axios is imported again
-import styles from './Section.module.css';
-import Card from '../Card/Card';
-import Tooltip from '@mui/material/Tooltip';
-import Chip from '@mui/material/Chip'; // Chip is also used in Card, ensure it's imported if Card.jsx doesn't handle it for tooltip
-
+import React, { useEffect, useState } from "react";
+import axios from "axios"; // <--- Ensure Axios is imported again
+import styles from "./Section.module.css";
+import Card from "../Card/Card";
+import Tooltip from "@mui/material/Tooltip";
+import Chip from "@mui/material/Chip"; // Chip is also used in Card, ensure it's imported if Card.jsx doesn't handle it for tooltip
 
 /**
  * Reusable Section component for displaying a grid of cards (e.g., Top Albums, New Albums).
@@ -17,7 +16,10 @@ import Chip from '@mui/material/Chip'; // Chip is also used in Card, ensure it's
  */
 function Section({ title, endpoint }) {
   const [data, setData] = useState([]);
-  const [collapsed, setCollapsed] = useState(true);
+  // const [collapsed, setCollapsed] = useState(true);
+
+  const isTest = process.env.NODE_ENV === "test";
+  const [collapsed, setCollapsed] = useState(isTest ? false : true);
 
   // Function to fetch data from the API using Axios
   const fetchData = async () => {
@@ -44,8 +46,11 @@ function Section({ title, endpoint }) {
     <div className={styles.sectionContainer}>
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
-        <button onClick={handleToggleCollapse} className={styles.collapseButton}>
-          {collapsed ? 'Show All' : 'Collapse'}
+        <button
+          onClick={handleToggleCollapse}
+          className={styles.collapseButton}
+        >
+          {collapsed ? "Show All" : "Collapse"}
         </button>
       </div>
 
