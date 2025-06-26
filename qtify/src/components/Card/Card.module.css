@@ -1,0 +1,84 @@
+.card {
+  width: 159px;
+  height: 205px; /* only image + chip */
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 159px;
+  gap: 6px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 159px;
+  height: 205px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  display: block;
+}
+
+.chipContainer {
+  position: absolute;
+  top: 176px;
+  left: 6px;
+  z-index: 1;
+}
+
+.chip {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 400;
+  height: 23px !important;
+  padding: 4px 8px !important;
+  border-radius: 10px !important;
+  min-width: 71px;
+  width: auto;
+  font-family: 'Poppins', sans-serif;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* .cardContent {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 6px 8px;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+} */
+
+.cardTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

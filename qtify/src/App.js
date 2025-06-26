@@ -5,6 +5,7 @@ import './index.css';
 // Import your Navbar and Hero components
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import Section from './components/Section/Section';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       */}
       <Navbar />
       <Hero />
+      <Section title="Top Albums" endpoint="https://qtify-backend-labs.crio.do/albums/top" />
     </div>
   );
 }
