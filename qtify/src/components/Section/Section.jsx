@@ -14,7 +14,7 @@ const Section = ({ title, endpoint }) => {
       .catch((err) => console.error(err));
   }, [endpoint]);
 
-  const handleToggle = () => {
+  const toggleView = () => {
     setIsCollapsed((prev) => !prev);
   };
 
@@ -24,7 +24,13 @@ const Section = ({ title, endpoint }) => {
     <div className={styles.sectionContainer}>
       <div className={styles.header}>
         <Typography className={styles.title}>{title}</Typography>
-        <Button className={styles.showAllBtn} onClick={handleToggle}>
+        <Button
+          variant="text"
+          disableElevation
+          disableRipple
+          className={styles.toggleButton}
+          onClick={toggleView}
+        >
           {isCollapsed ? 'Show All' : 'Collapse'}
         </Button>
       </div>

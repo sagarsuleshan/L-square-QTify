@@ -1,13 +1,11 @@
 .sectionContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px 32px;
   gap: 32px;
-  width: auto;
-  height: auto;
-  color: #ffffff;
+  padding: 0px 32px;
   margin-bottom: 48px;
+  color: #ffffff;
+  width: auto;
 }
 
 .header {
@@ -25,25 +23,33 @@
   color: #ffffff;
 }
 
-.showAllBtn {
+.toggleButton {
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-weight: 600;
   text-transform: none;
-  color: #34C94B;
-  background: transparent;
-  box-shadow: none;
+  color: #34C94B !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  min-width: fit-content;
+  padding: 0;
+}
+
+.toggleButton:hover {
+  background-color: transparent !important;
 }
 
 .cardRow {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   gap: 40px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 8px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .cardRow::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
