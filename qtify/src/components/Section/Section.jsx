@@ -18,7 +18,7 @@ const Section = ({ title, endpoint }) => {
     setIsCollapsed((prev) => !prev);
   };
 
-  const visibleAlbums = isCollapsed ? albums.slice(0, 7) : albums;
+  const visibleAlbums = isCollapsed ? albums.slice(0, 6) : albums;
 
   return (
     <div className={styles.sectionContainer}>
