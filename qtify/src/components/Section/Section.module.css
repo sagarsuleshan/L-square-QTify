@@ -1,7 +1,6 @@
+/* src/components/Section/Section.module.css */
+
 .sectionContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
   padding: 0px 32px;
   margin-bottom: 48px;
   color: #ffffff;
@@ -39,17 +38,71 @@
   background-color: transparent !important;
 }
 
+/* Existing card row styles (for expanded grid view) */
 .cardRow {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; /* Default for the non-expanded grid or horizontal scroll if not using carousel */
   gap: 40px;
-  overflow-x: auto;
+  overflow-x: auto; /* Keep this for the basic row if not using carousel */
   overflow-y: hidden;
   padding-bottom: 8px;
   scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .cardRow::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/* Styles for when the grid is expanded (flex-wrap for multiple rows) */
+.cardRowExpanded {
+  flex-wrap: wrap; /* Allows cards to wrap into multiple rows */
+  overflow-x: hidden; /* No horizontal scroll in expanded grid */
+  padding-bottom: 0; /* No extra padding for scrollbar */
+  justify-content: flex-start; /* Align items to the start */
+  /* This gap might need to be adjusted to align with figma if your cards have fixed width. */
+  /* Currently, cards have 159px width and this gap is 40px which totals 199px per card + gap */
+}
+
+
+/* --- New Styles for Songs Section Tabs --- */
+.tabsContainer {
+  margin-top: 20px; /* Adjust as needed for vertical spacing from title */
+  margin-bottom: 20px; /* Spacing between tabs and carousel */
+}
+
+.tabs {
+  /* Customize the main tabs container */
+  /* Example: Remove default underline */
+  & .MuiTabs-indicator {
+    background-color: #34C94B !important; /* Green indicator */
+  }
+  & .MuiTabs-flexContainer {
+    gap: 20px; /* Space between tabs */
+  }
+}
+
+.tab {
+  /* Customize individual tab buttons */
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: none !important; /* Prevent uppercase */
+  color: #ffffff !important; /* Default tab text color */
+  opacity: 0.5 !important; /* Unselected tab opacity */
+  min-width: fit-content !important; /* Only take content width */
+  padding: 6px 12px !important; /* Adjust padding as per Figma */
+  border-radius: 10px !important; /* Rounded corners for tabs */
+  /* Remove default MUI hover/focus effects if desired */
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Subtle hover effect */
+  }
+}
+
+.selectedTab {
+  /* Style for the active/selected tab */
+  color: #34C94B !important; /* Green text for selected tab */
+  opacity: 1 !important; /* Full opacity for selected tab */
+  background-color: rgba(52, 201, 75, 0.2) !important; /* Light green background for selected tab */
 }

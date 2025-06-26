@@ -1,0 +1,50 @@
+/* Carousel.module.css */
+
+.carouselContainer {
+  position: relative; /* Needed for absolute positioning of arrows */
+  width: 100%;
+}
+
+.leftNav,
+.rightNav {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  z-index: 10; /* Ensure arrows are above cards */
+  cursor: pointer;
+  padding: 8px; /* Give some clickable area */
+  /* If your SVGs are not green circles, you might need to add background/border-radius here */
+  /* background-color: #121212; */
+  /* border-radius: 50%; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.leftNav {
+  left: -20px; /* Adjust as needed for positioning outside the visible area */
+}
+
+.rightNav {
+  right: -20px; /* Adjust as needed for positioning outside the visible area */
+}
+
+.leftNav img,
+.rightNav img {
+  width: 30px; /* Adjust size of your arrow SVGs */
+  height: 30px;
+}
+
+/* --- IMPORTANT FOR ARROW VISIBILITY --- */
+/* Swiper automatically adds 'swiper-button-disabled' class when at start/end */
+.leftNav.swiper-button-disabled,
+.rightNav.swiper-button-disabled {
+  opacity: 0;
+  pointer-events: none; /* Disables clicks when the button is hidden/disabled */
+}
+
+/* Ensure default Swiper navigation buttons are hidden if they somehow appear */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}

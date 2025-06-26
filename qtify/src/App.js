@@ -2,42 +2,18 @@ import React from 'react';
 //import './App.css';
 import './index.css';
 
-// Import your Navbar and Hero components
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Section from './components/Section/Section';
 
 function App() {
   return (
-    <div className="App"> {/* Keep this div, but remove the default header content inside it */}
-      {/*
-        DELETE ALL THE DEFAULT CREATE REACT APP HEADER CONTENT BELOW THIS LINE:
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        AND REPLACE IT WITH YOUR COMPONENTS:
-      */}
+    <div className="App">
       <Navbar />
       <Hero />
-      <Section
-        title="Top Albums"
-        endpoint="https://qtify-backend-labs.crio.do/albums/top"
-      />
-      <Section
-        title="New Albums"
-        endpoint="https://qtify-backend-labs.crio.do/albums/new"
-      />
+      <Section title="Top Albums" type="albums" showCollapseButton={true} />
+      <Section title="New Albums" type="albums" showCollapseButton={true} />
+      <Section title="Songs" type="songs" showCollapseButton={false} />
     </div>
   );
 }
