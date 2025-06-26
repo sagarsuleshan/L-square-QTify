@@ -20,7 +20,7 @@ function Card({ image, follows, title, slug, songs = [], isSong = false }) {
   // Slug and songs are placeholders for future functionality.
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="album-card">
       <Tooltip
         title={isSong ? "" : `${songs.length} songs`}
         placement="top"
