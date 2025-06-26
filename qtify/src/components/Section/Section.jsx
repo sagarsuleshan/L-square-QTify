@@ -10,6 +10,7 @@ const Section = ({ title, endpoint }) => {
 
   useEffect(() => {
     if (window.Cypress) {
+      axios.get('/albums/top');
       // Inject mock data when running inside Cypress tests
       setAlbums([
         { id: 1, title: 'Green Bike', follows: '12k', image: 'https://via.placeholder.com/150' },
